@@ -1,13 +1,15 @@
-Set Up Developer Account: Sign up for a developer account with Plaid and obtain your API keys and credentials.
+1. Set Up Developer Account: Sign up for a developer account with Plaid and obtain your API keys and credentials.
 
-Understand Plaid API: Familiarize yourself with Plaid's API documentation, endpoints, and authentication mechanisms.
+2. Understand Plaid API: Familiarize yourself with Plaid's API documentation, endpoints, and authentication mechanisms.
 
-Choose a Tech Stack: Decide on the technology stack you want to use for your application, such as React.js for the front-end and Node.js for the back-end (we use Vue and Node).
+3. Choose a Tech Stack: Decide on the technology stack you want to use for your application, such as React.js for the front-end and Node.js for the back-end (we use Vue and Node).
 
-For this exercise, you do not need to develop a user interface where users can securely log in, link their bank accounts, and view their financial data, as Plaid provides their own UI for login, but you will need to integrate Plaid Link somewhere (you can use super-rough UI) to enable users to connect their bank accounts securely.
+4. For this exercise, you do not need to develop a user interface where users can securely log in, link their bank accounts, and view their financial data, as Plaid provides their own UI for login, but you will need to integrate Plaid Link somewhere (you can use super-rough UI) to enable users to connect their bank accounts securely.
 
-Handle Authentication: Implement user authentication and store access tokens securely.
+5. Handle Authentication: Implement user authentication and store access tokens securely.
 
-Retrieve Financial Data: Use Plaid API endpoints to retrieve users' financial data, such as account balances and transaction history.
+6. Retrieve Financial Data: Use Plaid API endpoints to retrieve users' financial data, such as account balances and transaction history.
 
-Route the plaid sample data into a Firestore database. 
+7. Route the plaid sample data into a Firestore database. 
+
+https://docs.google.com/document/d/1m-NZ7SXOprDngJO1HVV85ff7xJlponNRAlXmk-8EOUI/edit
