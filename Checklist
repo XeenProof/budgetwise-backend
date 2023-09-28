@@ -2,8 +2,6 @@
 
 2. Understand Plaid API: Familiarize yourself with Plaid's API documentation, endpoints, and authentication mechanisms.
 
-3. Choose a Tech Stack: Decide on the technology stack you want to use for your application, such as React.js for the front-end and Node.js for the back-end (we use Vue and Node).
-
 4. For this exercise, you do not need to develop a user interface where users can securely log in, link their bank accounts, and view their financial data, as Plaid provides their own UI for login, but you will need to integrate Plaid Link somewhere (you can use super-rough UI) to enable users to connect their bank accounts securely.
 
 5. Handle Authentication: Implement user authentication and store access tokens securely.
@@ -11,5 +9,8 @@
 6. Retrieve Financial Data: Use Plaid API endpoints to retrieve users' financial data, such as account balances and transaction history.
 
 7. Route the plaid sample data into a Firestore database. 
+
+Completed:
+3. Choose a Tech Stack: Decide on the technology stack you want to use for your application, such as React.js for the front-end and Node.js for the back-end (we use Vue and Node).
 
 https://docs.google.com/document/d/1m-NZ7SXOprDngJO1HVV85ff7xJlponNRAlXmk-8EOUI/edit
