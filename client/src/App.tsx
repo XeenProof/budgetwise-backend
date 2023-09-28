@@ -4,9 +4,12 @@ import {
   theme,
 } from "@chakra-ui/react"
 import { Mainscreen } from "./components/Mainscreen"
+import { AuthContextProvider } from "./store/AuthStore"
 
 export const App = () => (
-  <ChakraProvider theme={theme}>
-    <Mainscreen/>
-  </ChakraProvider>
+  <AuthContextProvider>
+    <ChakraProvider theme={theme}>
+      <Mainscreen/>
+    </ChakraProvider>
+  </AuthContextProvider>
 )

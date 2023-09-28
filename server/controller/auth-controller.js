@@ -16,8 +16,16 @@ const getLoggedIn = async (req, res) => {
                 id = req.id
             })
         }
+        console.log(id)
+        if (!id) {
+            return res.status(200).json({
+                loggedIn: false,
+                user: null,
+                errorMessage: "?"
+        })}
 
         const loggedInUser = await AuthDAO.getUserById(id);
+        console.log("ID", loggedInUser)
 
         return res.status(200).json({
             loggedIn: true,
@@ -51,7 +59,7 @@ const login = async (req, res) => {
                     errorMessage: "Wrong email or password provided."
                 })
         }
-        const token = auth.signToken(existingUser._id);
+        const token = auth.signToken(existingUser.id);
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,

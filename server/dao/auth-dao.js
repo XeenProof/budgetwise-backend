@@ -23,9 +23,9 @@ const getUserByLogin = async (email) => {
 }
 
 const getUserById = async (id) => {
-    let data = await userRef.doc(id).get();
+    let data = (await userRef.doc(id).get()).data();
     if(data.size < 1){return null;}
-    let user = extractUser(data)[0];
+    let user = data;
     return user;
 }
 

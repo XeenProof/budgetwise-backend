@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken")
 
 function authManager() {
     verify = (req, res, next) => {
+        console.log("verify ran")
         try {
             const token = req.cookies.token
             if (!token) {
@@ -14,7 +15,7 @@ function authManager() {
 
             const verified = jwt.verify(token, process.env.JWT_SECRET)
             console.log("verified.userId: " + verified.userId);
-            req.userId = verified.userId;
+            req.id = verified.userId;
 
             next();
         } catch (err) {
@@ -30,11 +31,13 @@ function authManager() {
     verifyUser = (req) => {
         try {
             const token = req.cookies.token;
+            console.log(token)
             if (!token) {
                 return null;
             }
 
             const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+            console.log(decodedToken);
             return decodedToken.userId;
         } catch (err) {
             return null;
