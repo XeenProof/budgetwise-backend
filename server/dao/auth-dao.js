@@ -12,7 +12,7 @@ const extractUser = (data) => {
 }
 
 const getNewUserID = () => {
-    return userRef.doc();
+    return userRef.doc().id.toString();
 }
 
 const getUserByLogin = async (email) => {

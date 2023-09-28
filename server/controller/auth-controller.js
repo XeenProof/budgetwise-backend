@@ -2,6 +2,37 @@ const auth = require('../auth/auth-manager');
 const bcrypt = require('bcryptjs')
 const AuthDAO = require('../dao/auth-dao');
 
+const getLoggedIn = async (req, res) => {
+    try {
+        let id = auth.verifyUser(req);
+        if (!id) {
+            return res.status(200).json({
+                loggedIn: false,
+                user: null,
+                errorMessage: "?"
+            })
+        } else {
+            auth.verify(req, res, async function () {
+                id = req.id
+            })
+        }
+
+        const loggedInUser = await AuthDAO.getUserById(id);
+
+        return res.status(200).json({
+            loggedIn: true,
+            user: {
+                username: loggedInUser.username,
+                email: loggedInUser.email,
+                id: loggedInUser.id
+            }
+        })
+    } catch (err) {
+        console.log("err: " + err);
+        res.json(false);
+    }
+}
+
 const login = async (req, res) => {
     try{
         const {email, password} = req.body;
@@ -89,11 +120,13 @@ const register = async (req, res) => {
             success: true
         })
     } catch (err) {
+        console.log(err)
         res.status(500).send();
     }
 }
 
 module.exports= {
+    getLoggedIn,
     login,
     logout,
     register
