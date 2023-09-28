@@ -11,6 +11,10 @@ const extractUser = (data) => {
     return list;
 }
 
+const getNewUserID = () => {
+    return userRef.doc();
+}
+
 const getUserByLogin = async (email) => {
     let data = await userRef.where("email", '==', email).get();
     if(data.size < 1){return null;}
@@ -26,11 +30,12 @@ const getUserById = async (id) => {
 }
 
 const createUser = async (newUser) => {
-    let {id} = newUser
-    userRef.doc(id).set(newUser).catch((e)=>{
-        newUser = null;
+    let id = getNewUserID();
+    let data = {...newUser, id:id}
+    userRef.doc(id).set(data).catch((e)=>{
+        data = null;
     })
-    return newUser
+    return data
 }
 
 module.exports = {
